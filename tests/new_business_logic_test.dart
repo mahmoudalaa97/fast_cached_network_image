@@ -1,6 +1,54 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 
+class ExpectedExceptionTypeForActualFunction1 implements Exception {
+  final String message;
+  ExpectedExceptionTypeForActualFunction1(this.message);
+}
+
+class ExpectedExceptionTypeForActualFunction2 implements Exception {
+  final String message;
+  ExpectedExceptionTypeForActualFunction2(this.message);
+}
+
+class ExpectedExceptionTypeForActualFunction3 implements Exception {
+  final String message;
+  ExpectedExceptionTypeForActualFunction3(this.message);
+}
+
+class ExpectedExceptionTypeForActualFunction4 implements Exception {
+  final String message;
+  ExpectedExceptionTypeForActualFunction4(this.message);
+}
+
+String actualFunction1(String input) {
+  if (input == 'invalid input') {
+    throw ExpectedExceptionTypeForActualFunction1('Invalid input');
+  }
+  return 'expected output';
+}
+
+String actualFunction2(String input) {
+  if (input == 'invalid input') {
+    throw ExpectedExceptionTypeForActualFunction2('Invalid input');
+  }
+  return 'expected output';
+}
+
+String actualFunction3(String input) {
+  if (input == 'invalid input') {
+    throw ExpectedExceptionTypeForActualFunction3('Invalid input');
+  }
+  return 'expected output';
+}
+
+String actualFunction4(String input) {
+  if (input == 'invalid input') {
+    throw ExpectedExceptionTypeForActualFunction4('Invalid input');
+  }
+  return 'expected output';
+}
+
 void main() {
   group('FastCachedNetworkImage', () {
     test('should handle null inputs', () {
